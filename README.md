@@ -73,7 +73,7 @@ You should see:
 ### Endpoint:  POST /api/health-profile
 
 
-#### Option 1: Text Input (JSON)
+
 
 #### Headers:
 ```bash
@@ -96,7 +96,7 @@ Content-Type: application/json
 - **Value:** Select your image file  
 
 
-## 📄 Example Response (4-Step Output)
+
 
 The API returns a structured breakdown aligned with the assignment’s evaluation criteria.
 ```bash
@@ -107,10 +107,12 @@ The API returns a structured breakdown aligned with the assignment’s evaluatio
       "smoker": true,
       "diet": "high sugar",
       "exercise": "rarely"
-    },
+    }
+    ,
     "missing_fields": [],
     "confidence": 0.92
   },
+  
   "step_2_extraction": {
     "factors": [
       "smoker",
@@ -119,6 +121,7 @@ The API returns a structured breakdown aligned with the assignment’s evaluatio
     ],
     "confidence": 0.95
   },
+  
   "step_3_risk_scoring": {
     "risk_level": "High",
     "score": 65,
@@ -128,6 +131,7 @@ The API returns a structured breakdown aligned with the assignment’s evaluatio
       "sedentary lifestyle (low exercise)"
     ]
   },
+  
   "step_4_final_output": {
     "risk_level": "High",
     "factors": [
@@ -142,20 +146,13 @@ The API returns a structured breakdown aligned with the assignment’s evaluatio
     ],
     "status": "ok"
   }
+  
 }
 ```
 
 ## 🧠 Architecture Decisions
 
-### 1. Why Groq (Llama 3.3)?
 
-For real-time health profiling, latency is critical. Groq’s LPU-based inference delivers near-instant responses compared to traditional CPU/GPU-based APIs. The llama-3.3-70b-versatile model provides strong instruction-following capabilities and reliable structured output generation.
-
-### 2. Why Not Hugging Face?
-
-Hugging Face Inference APIs were initially evaluated during development. However, free-tier inference suffered from frequent model cold starts, availability issues (404/410 responses), and inconsistent latency. To ensure a stable and reliable demo experience, Groq Cloud was selected for its consistently available models, predictable performance, and production-grade inference reliability.
-
-### 3. Resilience & Fallback Strategy
 
 Problem: External AI APIs can experience downtime or rate limits.
 
@@ -163,7 +160,7 @@ Solution: All AI calls are wrapped in a try/catch mechanism. If Groq is unavaila
 
 Result: The backend always returns a valid JSON response, ensuring reliability during demos and real-world usage.
 
-### 4. Safety Guardrails
+
 
 To prevent hallucination or unsafe medical advice:
 
@@ -173,11 +170,7 @@ Output Sanitization: Filters restricted medical terms such as “diagnose”, �
 
 Non-Diagnostic Design: All recommendations are general wellness guidance only.
 
-### 5. Confidence Scores
 
-Confidence values are heuristic indicators derived from AI certainty and deterministic logic. They are not clinical probabilities and should be interpreted only as signal-strength indicators.
-
-## ⚠️ Limitations
 
 This system provides non-diagnostic wellness guidance only. It is intended for educational and risk-awareness purposes and does not replace professional medical consultation.
 
@@ -192,5 +185,4 @@ This project demonstrates:
 ✅ Safe and responsible AI usage
 
 ✅ Clear alignment with the assignment’s 4-step evaluation pipeline
-
 
