@@ -1,6 +1,0 @@
-{
-  "inputs": "Give 3 simple lifestyle tips for a smoker",
-  "parameters": {
-    "max_new_tokens": 60
-  }
-}

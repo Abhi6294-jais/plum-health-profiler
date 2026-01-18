@@ -1,6 +1,0 @@
-{
-  "inputs": "I smoke a lot and eat sweets",
-  "parameters": {
-    "candidate_labels": ["smoker", "healthy"]
-  }
-}
