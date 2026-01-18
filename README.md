@@ -116,10 +116,12 @@ The API returns a structured breakdown aligned with the assignment’s evaluatio
       "smoker": true,
       "diet": "high sugar",
       "exercise": "rarely"
-    },
+    }
+    ,
     "missing_fields": [],
     "confidence": 0.92
   },
+  
   "step_2_extraction": {
     "factors": [
       "smoker",
@@ -127,7 +129,8 @@ The API returns a structured breakdown aligned with the assignment’s evaluatio
       "sedentary lifestyle (low exercise)"
     ],
     "confidence": 0.95
-  },
+  }
+  ,
   "step_3_risk_scoring": {
     "risk_level": "High",
     "score": 65,
@@ -136,7 +139,8 @@ The API returns a structured breakdown aligned with the assignment’s evaluatio
       "high sugar diet",
       "sedentary lifestyle (low exercise)"
     ]
-  },
+  }
+  ,
   "step_4_final_output": {
     "risk_level": "High",
     "factors": [
