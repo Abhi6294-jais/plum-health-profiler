@@ -70,9 +70,7 @@ You should see:
 
 ## 📡 API Usage
 
-### Endpoint:  POST /api/health-profile
-
-
+### Endpoint:  ```POST /api/health-profile```
 
 
 #### Headers:
