@@ -77,6 +77,8 @@ You should see:
 🚀 Server running on http://localhost:3000
 
 
+
+
 📡 API Usage
 
 Endpoint: POST /api/health-profile
@@ -105,6 +107,8 @@ Type: File
 
 Value: [Select your image file]
 
+
+
 📄 Example Response (4-Step Output)
 
 The API returns a structured breakdown aligned with the assignment’s evaluation criteria.
@@ -129,8 +133,8 @@ The API returns a structured breakdown aligned with the assignment’s evaluatio
       "sedentary lifestyle (low exercise)"
     ],
     "confidence": 0.95
-  }
-  ,
+  },
+  
   "step_3_risk_scoring": {
     "risk_level": "High",
     "score": 65,
@@ -139,8 +143,8 @@ The API returns a structured breakdown aligned with the assignment’s evaluatio
       "high sugar diet",
       "sedentary lifestyle (low exercise)"
     ]
-  }
-  ,
+  },
+  
   "step_4_final_output": {
     "risk_level": "High",
     "factors": [
@@ -158,15 +162,22 @@ The API returns a structured breakdown aligned with the assignment’s evaluatio
 }
 
 
+
+
+
 🧠 Architecture Decisions
 
 1. Why Groq (Llama 3.3)?
 
 For real-time health profiling, latency is critical. Groq’s LPU-based inference delivers near-instant responses compared to traditional CPU/GPU-based APIs. The llama-3.3-70b-versatile model provides strong instruction-following capabilities and reliable structured output generation.
 
+
+
 2. Why Not Hugging Face?
 
 Hugging Face Inference APIs were initially evaluated during development. However, free-tier inference suffered from frequent model cold starts, availability issues (404/410 responses), and inconsistent latency. To ensure a stable and reliable demo experience, Groq Cloud was selected for its consistently available models, predictable performance, and production-grade inference reliability.
+
+
 
 3. Resilience & Fallback Strategy
 
@@ -175,6 +186,8 @@ Problem: External AI APIs can experience downtime or rate limits.
 Solution: All AI calls are wrapped in a try/catch mechanism. If Groq is unavailable, the system automatically degrades to local keyword-based logic.
 
 Result: The backend always returns a valid JSON response, ensuring reliability during demos and real-world usage.
+
+
 
 4. Safety Guardrails
 
@@ -186,9 +199,13 @@ Output Sanitization: Filters restricted medical terms such as “diagnose”, �
 
 Non-Diagnostic Design: All recommendations are general wellness guidance only.
 
+
+
 5. Confidence Scores
 
 Confidence values are heuristic indicators derived from AI certainty and deterministic logic. They are not clinical probabilities and should be interpreted only as signal-strength indicators.
+
+
 
 ⚠️ Limitations
 
