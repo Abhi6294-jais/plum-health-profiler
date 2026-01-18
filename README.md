@@ -1,55 +1,53 @@
-🏥 AI-Powered Health Risk Profiler
+# 🏥 AI-Powered Health Risk Profiler
 
-This backend service processes user health data (via text or image) to generate a structured risk profile and actionable, non-diagnostic lifestyle recommendations.
+This backend service processes user health data (via text or image) to generate a structured risk profile and **non-diagnostic** lifestyle recommendations.
 
-It is designed using a Resilient Hybrid AI Architecture that prioritizes reliability, safety, and real-time inference.
+It uses a **Resilient Hybrid AI Architecture** focused on reliability, safety, and real-time inference.
 
-🧠 Architecture Overview
+---
 
-1. OCR (Tesseract.js)
+## 🧠 Architecture Overview
 
+### 1️⃣ OCR (Tesseract.js)
 Digitizes handwritten or printed health notes from uploaded images.
 
-2. AI Inference (Groq Llama 3.3)
-
+### 2️⃣ AI Inference (Groq Llama 3.3)
 Uses Groq Cloud for ultra-low-latency parsing, risk factor extraction, and recommendation generation.
 
-3. Smart Fallback Layer
+### 3️⃣ Smart Fallback Layer
+Ensures the API **never crashes**, even if external AI services are unavailable.
 
-A robust local fallback ensures the API never crashes, even if external AI services are unavailable.
+---
 
-🚀 Features
+## 🚀 Features
 
-Multi-Modal Input: Accepts structured JSON text or image uploads (OCR-based).
+- **Multi-Modal Input** (Text + Image)
+- **4-Step Processing Pipeline**
+- **AI-Driven Intelligence**
+- **Smart Failover System**
+- **Safety Guardrails**
+- **Deterministic Risk Scoring**
 
-4-Step Processing Pipeline: Parsing → Factor Extraction → Risk Scoring → Recommendations.
+---
 
-AI-Driven Intelligence: Uses Groq Cloud (llama-3.3-70b-versatile) for high-precision reasoning.
+## 🛠️ Tech Stack
 
-Smart Failover: Automatically switches to local regex-based logic if the AI API is unreachable.
+- **Runtime:** Node.js + Express
+- **OCR:** Tesseract.js
+- **AI Inference:** Groq Cloud (`llama-3.3-70b-versatile`)
+- **Uploads:** Multer
+- **Config:** Dotenv
 
-Safety Guardrails: Strict filtering ensures no medical diagnosis or unsafe advice is generated.
+---
 
-Risk Scoring: Deterministic scoring logic combined with AI understanding.
+## ⚙️ Setup Instructions
 
-🛠️ Tech Stack
+### 1️⃣ Clone the Repository
 
-Runtime: Node.js + Express
-
-OCR: Tesseract.js (Local, Free)
-
-AI Inference: Groq Cloud (llama-3.3-70b-versatile) ⚡
-
-File Uploads: Multer
-
-Config Management: Dotenv
-
-⚙️ Setup Instructions
-
-1. Clone the Repository
-
-git clone <your-repo-url>
+```bash
+git clone https://github.com/<your-username>/plum-health-profiler.git
 cd plum-health-profiler
+
 
 
 2. Install Dependencies
@@ -201,3 +199,6 @@ This project demonstrates:
 ✅ Safe and responsible AI usage
 
 ✅ Clear alignment with the assignment’s 4-step evaluation pipeline
+
+
+
