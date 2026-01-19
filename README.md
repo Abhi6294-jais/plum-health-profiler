@@ -124,7 +124,7 @@ Content-Type: application/json
 
 
 The API returns a structured breakdown aligned with the assignment’s evaluation criteria.
-```bash
+```json
 {
   "step_1_parsing": {
     "answers": {
