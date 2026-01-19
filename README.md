@@ -12,6 +12,30 @@ It is designed using a **Resilient Hybrid AI Architecture** that prioritizes rel
 2.  **AI Inference (Groq Llama 3.3):** Uses Groq Cloud for ultra-low-latency parsing, risk factor extraction, and recommendation generation.
 3.  **Smart Fallback Layer:** A robust local fallback ensures the API never crashes, even if external AI services are unavailable.
 
+### Simple High-Level Flow
+```bash
+Client
+  ↓
+Express API
+  ↓
+Input Normalization (Text / Image)
+  ↓
+OCR (Tesseract.js) [only if image]
+  ↓
+AI Parsing (Groq LLM)
+  ↓
+AI Risk Factor Extraction
+  ↓
+Deterministic Risk Scoring
+  ↓
+AI Recommendation Generation
+  ↓
+Safety Guardrails & Validation
+  ↓
+Final Structured JSON Response
+
+```
+
 ---
 
 ## 🚀 Features
