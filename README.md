@@ -13,7 +13,7 @@ It is designed using a **Resilient Hybrid AI Architecture** that prioritizes rel
 3.  **Smart Fallback Layer:** A robust local fallback ensures the API never crashes, even if external AI services are unavailable.
 
 ### Simple High-Level Flow
-```bash
+```css
 Client
   ↓
 Express API
